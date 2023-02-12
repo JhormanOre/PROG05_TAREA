@@ -10,11 +10,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 /**
- * 
+ *
  * @author Jhorman
  */
-
-
 //La clase Princioal es la 
 public class Principal {
 
@@ -33,7 +31,7 @@ public class Principal {
         Vehiculo v = null;
 
         String marca, matricula, descripcion, nombreProp, DNIProp;
-        int km, dia, mes, anio;
+        int km = 0, km_new, dia, mes, anio;
         double precio;
         LocalDate fechaMatriculacion;
 
@@ -53,10 +51,10 @@ public class Principal {
                 opcion = sn.nextInt();
 
                 switch (opcion) {
-                    
+
                     case 1:
 
-                        System.out.println("\nCreando vehiculo.\n");
+                        System.out.println("\nCreando vehiculo...");
                         System.out.print("Introduce la marca: ");
                         marca = sn.next();
 
@@ -107,7 +105,7 @@ public class Principal {
 
                     case 2:
                         if (v != null) {
-                            System.out.println("\nMatricula: " + v.getMatricula()+"\n");
+                            System.out.println("\nMatricula: " + v.getMatricula() + "\n");
                         } else {
                             System.out.println("\nNo se ha encontrado informacion de ningun vehiculo.Primero debe crear un vehiculo\n");
                         }
@@ -116,7 +114,7 @@ public class Principal {
                     case 3:
 
                         if (v != null) {
-                            System.out.println("\nKM: " + v.getNumKM()+"\n");
+                            System.out.println("\nKM: " + v.getNumKM() + "\n");
                         } else {
                             System.out.println("\nNo se ha encontrado informacion de ningun vehiculo.Primero debe crear un vehiculo\n");
                         }
@@ -126,15 +124,21 @@ public class Principal {
 
                         if (v != null) {
 
-                            System.out.print("\nIntroduce el numero de km: ");
-                            km = sn.nextInt();
+                            System.out.println("\nActualizando km, el nuevo km debe ser mayor al actual \"" + km + "km.\"");
+                            System.out.print("km nuevo: ");
 
-                            if (!Validacion.esPositivo(km)) {
+                            km_new = sn.nextInt();
+
+                            if (!Validacion.esPositivo(km_new)) {
                                 throw new Exception("\nkm debe ser positivo\n");
                             }
-
-                            v.setNumKM(km);
-                            System.out.println("\n¡¡¡Los KM han sido actualizados exitosamente!!!\n");
+                            if (km_new > km) {
+                                v.setNumKM(km_new);
+                                km=v.getNumKM();
+                                System.out.println("\n¡¡¡Los KM han sido actualizados exitosamente!!!\n");
+                            } else {
+                                throw new Exception("\nkm no actualizado.El km debe ser mayor al km actual.\n");
+                            }
 
                         } else {
                             System.out.println("\nNo se ha encontrado informacion de ningun vehiculo.Primero debe crear un vehiculo\n");
@@ -155,7 +159,7 @@ public class Principal {
                     case 6:
 
                         if (v != null) {
-                            System.out.println("\nPropietario: " + v.getDniPropietario() + " " + v.getNombrePropietario()+"\n");
+                            System.out.println("\nPropietario:\nnombre: " +v.getNombrePropietario()+ "\nDNI: "+v.getDniPropietario() + "\n");
                         } else {
                             System.out.println("\nNo se ha encontrado informacion de ningun vehiculo.Primero debe crear un vehiculo\n");
                         }
@@ -166,7 +170,7 @@ public class Principal {
                         if (v != null) {
                             System.out.println("\nDescripcion: " + v.getDescripcion());
                             System.out.println("Matricula: " + v.getMatricula());
-                            System.out.println("KM: " + v.getNumKM()+"\n");
+                            System.out.println("KM: " + v.getNumKM() + "\n");
                         } else {
                             System.out.println("\nNo se ha encontrado informacion de ningun vehiculo.Primero debe crear un vehiculo\n");
                         }
@@ -176,7 +180,7 @@ public class Principal {
                     case 8:
 
                         if (v != null) {
-                            System.out.println("\nPrecio: " + v.getPrecio()+"\n");
+                            System.out.println("\nPrecio: " + v.getPrecio() + " €\n");
                         } else {
                             System.out.println("\nNo se ha encontrado informacion de ningun vehiculo.Primero debe crear un vehiculo\n");
                         }
