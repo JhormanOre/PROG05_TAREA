@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package PROG05_Ejerc1;
 
 import PROG05_Ejerc1_util.Validacion;
@@ -12,8 +9,10 @@ import java.util.Scanner;
 /**
  *
  * @author Jhorman
+ * @version 2.0
  */
-//La clase Princioal es la 
+/*Es nuestra clase principal donde ejecutaremos el programa donde pondremos la 
+informacion de un Vehiculo y modificar esa informacion.*/
 public class Principal {
 
     //Metodo main punto donde iniciara a ejecutarse y finalizara nuestro programa.
@@ -35,6 +34,7 @@ public class Principal {
         double precio;
         LocalDate fechaMatriculacion;
 
+        //mintras que salir no sea "true" no saldremos del bucle
         while (!salir) {
 
             try {
