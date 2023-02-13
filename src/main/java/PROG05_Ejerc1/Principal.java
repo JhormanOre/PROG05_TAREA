@@ -16,6 +16,7 @@ informacion de un Vehiculo y modificar esa informacion.*/
 public class Principal {
 
     //Metodo main punto donde iniciara a ejecutarse y finalizara nuestro programa.
+    
     public static void main(String[] args) {
 
         //Instanciamos un objeto de tipo scanner que usara el teclado como entrada de datos. 

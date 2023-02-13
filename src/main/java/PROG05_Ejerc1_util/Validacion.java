@@ -4,11 +4,21 @@ import java.time.LocalDate;
 
 
  //@author Jhorman
- /*La clase validacion tendra metodos esticos que nos ayudaran a controlar los datos
+
+/**
+ * 
+ * @author Jhorman
+ * @version 2.0
+ */
+ /*Esta clase tendra metodos esticos que nos ayudaran a controlar los datos
 que se ingresen cuando se cree o modifique un vehiculo*/
 public class Validacion {
 
-    //Este metodo controla si el numero ingresado es mayor que 0 devolviendo un true si es mayor y false si es menor.
+    /**
+     * 
+     * @param num Hace refencia al num de km.
+     * @return devuelve tru si el numero de km es mayor que 0 me devolvera true de lo contraio false
+     */
     public static boolean esPositivo(int num) {
         if (num > 0) {
             return true;
@@ -17,7 +27,11 @@ public class Validacion {
         }
     }
 
-    //El metodo "fechaMAyorHoy" nos permitira saber si 
+    /**
+     * 
+     * @param fecha fecha en que se matricula el coche 
+     * @return nos devolvera true si la fecha es anterior a hoy y false si no lo es 
+     */
     public static boolean fechaMayorHoy(LocalDate fecha) {
 
         LocalDate hoy = LocalDate.now();
@@ -30,6 +44,11 @@ public class Validacion {
 
     }
 
+    /**
+     * 
+     * @param DNI dni del propietario del coche
+     * @return nos devolvera true si el dni del propietario es uno oficial.
+     */
     public static boolean validarDNI(String DNI) {
 
         if (DNI.length() != 9) {
